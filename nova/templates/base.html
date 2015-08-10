@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
     <link rel="stylesheet" href="{% static "css/main.css" %}">
     <link rel="stylesheet" href="{% static "css/sl-slide.css" %}">
+    <link rel="stylesheet" href="{% static "css/monokai_sublime.css" %}">
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="{% static "images/ico/favicon.ico" %}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static "images/ico/apple-touch-icon-144-precomposed.png" %}">
@@ -50,9 +51,16 @@
 <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
 <script src="{% static "js/bootstrap.js" %}"></script>
 <script src="{% static "js/bootstrap-extras.js" %}"></script>
+<script src="{% static "js/highlight.pack.js" %}"></script>
 {% block extra_js %}{% endblock %}
 {% include "includes/footer_scripts.html" %}
 {% endcompress %}
+
+<script>
+$(document).ready(function() {
+ $('pre').each(function(i, e) {hljs.highlightBlock(e)});
+});
+</script>
 
 <!--[if lt IE 9]>
 <script src="{% static "js/html5shiv.js" %}"></script>
